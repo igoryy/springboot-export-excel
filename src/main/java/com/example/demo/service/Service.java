@@ -82,11 +82,11 @@ public class Service {
             writeHeaderLine();
             writeDataLines();
 
-            ServletOutputStream outputStream = response.getOutputStream();
-            workbook.write(outputStream);
+
+            workbook.write(response.getOutputStream());
             workbook.close();
 
-            outputStream.close();
+            response.getOutputStream().close();
 
         }
 }
