@@ -113,7 +113,8 @@ public class Controller {
     @SneakyThrows
     public ResponseEntity exportToExcel3( ){
 
-
+//https://swagger.io/docs/specification/media-types/
+        //https://swagger.io/docs/specification/describing-responses/
 
         XSSFWorkbook wb = new XSSFWorkbook();
 
@@ -143,14 +144,11 @@ public class Controller {
 
 
         return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                .header(HttpHeaders.CONTENT_ENCODING,"base64")
-                .header(HttpHeaders.TRANSFER_ENCODING, "base64")
+                .contentType(MediaType.valueOf("application/vnd.ms-excel"))
+              //  .header(HttpHeaders.CONTENT_ENCODING,"base64")
+              //  .header(HttpHeaders.TRANSFER_ENCODING, "base64")
                 .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"my.xlsx\"")
                 .body(teste2);
-
-
-
 
     }
 
